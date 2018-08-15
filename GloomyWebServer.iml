@@ -32,5 +32,15 @@
         <jarDirectory url="file://$MODULE_DIR$/web/WEB-INF/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jquery" level="project" />
+    <orderEntry type="library" name="@types/jquery" level="application" />
+    <orderEntry type="library" name="@types/react" level="application" />
+    <orderEntry type="library" name="commons-beanutils-1.8.3-sources" level="project" />
+    <orderEntry type="library" name="commons-collections-3.2.1-1.0.0" level="project" />
+    <orderEntry type="library" name="commons-lang-2.5" level="project" />
+    <orderEntry type="library" name="json-lib-2.4-jdk15" level="project" />
+    <orderEntry type="library" name="gson-2.3.1" level="project" />
+    <orderEntry type="library" name="commons-logging-1.2.1.1" level="project" />
+    <orderEntry type="library" name="ezmorph-1.0.6" level="project" />
   </component>
 </module>
