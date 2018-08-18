@@ -176,7 +176,9 @@ function login() {
     },function (data, status) {
         console.log(data);
 
-        if(data.charAt(0)==='['){
+        if(data==='invalid\n') {
+            alert("You don't know that");
+        }else{
             $("#dialog").hide();
             setCookie("name", sname, 1);
 
@@ -194,8 +196,6 @@ function login() {
 
             $("#homePage").click(homeRender);
             $("#articleEntrance").click(articleRender);
-        }else{
-            alert(data);
         }
 
     });

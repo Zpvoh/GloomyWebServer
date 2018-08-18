@@ -22,6 +22,7 @@ public class FetchArticle extends HttpServlet {
         //out.println("This is a new servlet page "+request.getQueryString());
         String name = request.getParameter("name");
         if (!name.equals("Zpvoh") && !name.equals("zpvoh")) {
+            out.print("invalid");
             return;
         }
 
