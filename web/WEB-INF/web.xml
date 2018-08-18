@@ -11,4 +11,13 @@
         <servlet-name>articles</servlet-name>
         <url-pattern>/articles</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FetchArticle</servlet-name>
+        <servlet-class>article.FetchArticle</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FetchArticle</servlet-name>
+        <url-pattern>/fetchArticle</url-pattern>
+    </servlet-mapping>
 </web-app>
