@@ -112,7 +112,7 @@ class ArticlePage extends React.Component{
                     <h3 class="section click" data-id={json[i]['id']} onClick={articleClick}>
                         {json[i]['title']}
                         </h3>
-                    <img src={"http://127.0.0.1:8080/"+json[i]['cover_img']}/>
+                    <img src={"http://180.160.148.250:12333/dataServerCtrl/"+json[i]['cover_img']}/>
                     <div class="section" dangerouslySetInnerHTML={{__html: json[i]['description']}}/>
                 </div>);
                 this.state.articleArray.push(a);
