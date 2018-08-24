@@ -104,6 +104,12 @@ class ArticlePage extends React.Component{
         console.log('Component WILL MOUNT!')
     }
     componentDidMount() {
+        var ip;
+        var conf=$.ajax({url:"/info",async:false}).then(function (data, status) {
+            ip=data.split("\n")[0];
+            console.log(ip);
+        });
+
         $.post("articles", {name: sname}, function (data, status) {
             var json=JSON.parse(data);
             console.log(json);
@@ -111,8 +117,8 @@ class ArticlePage extends React.Component{
                 var a=(<div class="card col-sm-12">
                     <h3 class="section click" data-id={json[i]['id']} onClick={articleClick}>
                         {json[i]['title']}
-                        </h3>
-                    <img src={"http://180.160.148.250:12333/dataServerCtrl/"+json[i]['cover_img']}/>
+                    </h3>
+                    <img src={"http://"+ip+":12333/dataServerCtrl/"+json[i]['cover_img']}/>
                     <div class="section" dangerouslySetInnerHTML={{__html: json[i]['description']}}/>
                 </div>);
                 this.state.articleArray.push(a);
@@ -120,7 +126,9 @@ class ArticlePage extends React.Component{
             this.setState(this.state);
         }.bind(this));
         this.timerID=setInterval(()=>this.tick(), 1000);
-        console.log('Component DID MOUNT!')
+        console.log('Component DID MOUNT!');
+
+
     }
 
     tick(){

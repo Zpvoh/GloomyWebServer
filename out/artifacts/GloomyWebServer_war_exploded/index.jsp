@@ -26,6 +26,7 @@
 <div id="dialog"></div>
 <header id="head" class="sticky"></header>
 <div id="page"></div>
+<input type="file" ng-model="my_file" id="conf" style="display: none;">
 <footer id="foot" class="sticky"></footer>
 
 </body>
