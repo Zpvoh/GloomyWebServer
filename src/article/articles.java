@@ -11,9 +11,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.*;
+import java.util.Scanner;
 
 @WebServlet(name = "articles")
 public class articles extends HttpServlet {
@@ -29,9 +29,30 @@ public class articles extends HttpServlet {
             return;
         }
 
+        String ip="";
+        String username="";
+        String pass="";
+        String path="";
+
+        try {
+            File file=new File("/info");
+            path=file.getAbsolutePath();
+
+            FileInputStream fileStream=new FileInputStream(file);
+            Scanner input= new Scanner(fileStream);
+            ip=input.nextLine();
+            username=input.nextLine();
+            pass=input.nextLine();
+            fileStream.close();
+        } catch (FileNotFoundException e) {
+            out.println("no info file");
+        } catch (IOException e) {
+            out.println("IO problem");
+        }
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/articles", "root", "82870808qyy");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://"+ip+":3306/articles", username, pass);
             Statement stmt=conn.createStatement();
             ResultSet rs=stmt.executeQuery("SELECT * FROM articles");
 
