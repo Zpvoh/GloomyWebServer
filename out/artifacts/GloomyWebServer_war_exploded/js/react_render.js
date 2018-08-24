@@ -74,7 +74,7 @@ class Article extends React.Component{
 
 class VerifyDialog extends React.Component{
     render(){
-        return <div><label htmlFor="modal-control">Verify your identity</label>
+        return <div><label htmlFor="modal-control">Answer my question then I can let you in</label>
             <input type="checkbox" id="modal-control" className={"modal"}/>
             <div>
                 <div className="card">
@@ -83,7 +83,7 @@ class VerifyDialog extends React.Component{
                     <p className="section">
 
                         <div>
-                            Please input owner of the website's common screen name:
+                            What is owner of the website's common screen name?
                             <input type="password" name="password" id="nameTxt"/>
                         </div>
                         <input type="button" value="Login" id="loginBt"/>
@@ -109,7 +109,7 @@ class ArticlePage extends React.Component{
             console.log(json);
             for(var i=0; i<json.length; i++) {
                 var a=(<div class="card col-sm-12">
-                    <h3 class="section" data-id={json[i]['id']} onClick={articleClick}>
+                    <h3 class="section click" data-id={json[i]['id']} onClick={articleClick}>
                         {json[i]['title']}
                         </h3>
                     <img src={"http://127.0.0.1:8080/"+json[i]['cover_img']}/>

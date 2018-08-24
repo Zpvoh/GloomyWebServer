@@ -2,6 +2,7 @@ package article;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import uniform.InfoReader;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,14 +22,17 @@ public class FetchArticle extends HttpServlet {
         PrintWriter out = response.getWriter();
         //out.println("This is a new servlet page "+request.getQueryString());
         String name = request.getParameter("name");
+
         if (!name.equals("Zpvoh") && !name.equals("zpvoh")) {
             out.print("invalid");
             return;
         }
 
+        InfoReader reader=new InfoReader();
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/articles", "root", "82870808qyy");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://"+reader.getIp()+":3306/articles", reader.getUsername(), reader.getPass());
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM articles WHERE id=" + request.getParameter("id"));
             rs.next();

@@ -5,3 +5,7 @@
 .deteleBt{
     float: right;
 }
+
+.click{
+    cursor: pointer;
+}
