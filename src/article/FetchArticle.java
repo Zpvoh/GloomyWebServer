@@ -30,7 +30,7 @@ public class FetchArticle extends HttpServlet {
         }
 
         InfoReader reader=new InfoReader();
-        //out.println(reader.path);
+        //out.println(reader.path)
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
