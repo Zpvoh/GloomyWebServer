@@ -11,14 +11,15 @@ public class InfoReader {
     private String ip;
     private String username;
     private String pass;
+    public String path;
 
     public InfoReader(){
         try {
             File file=new File("info");
+            path=file.getAbsolutePath();
+
             FileInputStream fileStream=new FileInputStream("info");
             Scanner input= new Scanner(fileStream);
-
-            JOptionPane.showMessageDialog(null, file.getAbsolutePath());
             ip=input.nextLine();
             username=input.nextLine();
             pass=input.nextLine();
