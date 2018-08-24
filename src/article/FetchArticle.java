@@ -29,7 +29,7 @@ public class FetchArticle extends HttpServlet {
             return;
         }
 
-        InfoReader reader=new InfoReader();
+        InfoReader reader=new InfoReader(out);
         //out.println(reader.path);
 
         try {

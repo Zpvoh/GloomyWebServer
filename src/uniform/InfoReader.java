@@ -1,10 +1,7 @@
 package uniform;
 
 import javax.swing.*;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class InfoReader {
@@ -13,7 +10,7 @@ public class InfoReader {
     private String pass;
     public String path;
 
-    public InfoReader(){
+    public InfoReader(PrintWriter out){
         try {
             File file=new File(InfoReader.class.getResource("info").getFile());
             path=file.getAbsolutePath();
@@ -25,9 +22,9 @@ public class InfoReader {
             pass=input.nextLine();
             fileStream.close();
         } catch (FileNotFoundException e) {
-            System.out.println("no info file");
+            out.println("no info file");
         } catch (IOException e) {
-            System.out.println("IO problem");
+            out.println("IO problem");
         }
 
     }
