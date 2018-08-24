@@ -1,5 +1,7 @@
 package uniform;
 
+import javax.swing.*;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,8 +14,11 @@ public class InfoReader {
 
     public InfoReader(){
         try {
+            File file=new File("info");
             FileInputStream fileStream=new FileInputStream("info");
             Scanner input= new Scanner(fileStream);
+
+            JOptionPane.showMessageDialog(null, file.getAbsolutePath());
             ip=input.nextLine();
             username=input.nextLine();
             pass=input.nextLine();
