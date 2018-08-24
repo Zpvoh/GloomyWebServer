@@ -21,8 +21,6 @@ public class FetchArticle extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         //实现具体操作
         PrintWriter out = response.getWriter();
-        InfoReader reader=new InfoReader();
-        out.println(reader.path);
         //out.println("This is a new servlet page "+request.getQueryString());
         String name = request.getParameter("name");
 
@@ -30,6 +28,9 @@ public class FetchArticle extends HttpServlet {
             out.print("invalid");
             return;
         }
+
+        InfoReader reader=new InfoReader();
+        //out.println(reader.path);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");

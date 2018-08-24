@@ -15,7 +15,7 @@ public class InfoReader {
 
     public InfoReader(){
         try {
-            File file=new File("info");
+            File file=new File("/info");
             path=file.getAbsolutePath();
 
             FileInputStream fileStream=new FileInputStream("info");
