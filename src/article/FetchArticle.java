@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.sql.*;
+import java.util.Scanner;
 
 @WebServlet(name = "FetchArticle")
 public class FetchArticle extends HttpServlet {
@@ -29,12 +29,32 @@ public class FetchArticle extends HttpServlet {
             return;
         }
 
-        InfoReader reader=new InfoReader(out);
+        //InfoReader reader=new InfoReader(out);
         //out.println(reader.path);
+        String ip="";
+        String username="";
+        String pass="";
+        String path="";
+
+        try {
+            File file=new File(InfoReader.class.getResource("info").getFile());
+            path=file.getAbsolutePath();
+
+            FileInputStream fileStream=new FileInputStream(file);
+            Scanner input= new Scanner(fileStream);
+            ip=input.nextLine();
+            username=input.nextLine();
+            pass=input.nextLine();
+            fileStream.close();
+        } catch (FileNotFoundException e) {
+            out.println("no info file");
+        } catch (IOException e) {
+            out.println("IO problem");
+        }
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://"+reader.getIp()+":3306/articles", reader.getUsername(), reader.getPass());
+            Connection conn = DriverManager.getConnection("jdbc:mysql://"+ip+":3306/articles", username, pass);
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM articles WHERE id=" + request.getParameter("id"));
             rs.next();
