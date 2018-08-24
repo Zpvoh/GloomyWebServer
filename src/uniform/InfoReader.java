@@ -18,7 +18,7 @@ public class InfoReader {
             File file=new File("info");
             path=file.getAbsolutePath();
 
-            FileInputStream fileStream=new FileInputStream("info");
+            FileInputStream fileStream=new FileInputStream(file);
             Scanner input= new Scanner(fileStream);
             ip=input.nextLine();
             username=input.nextLine();
