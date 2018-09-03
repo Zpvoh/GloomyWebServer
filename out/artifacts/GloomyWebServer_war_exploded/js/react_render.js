@@ -114,8 +114,8 @@ class ArticlePage extends React.Component{
             var json=JSON.parse(data);
             console.log(json);
             for(var i=0; i<json.length; i++) {
-                var a=(<div class="card col-sm-12">
-                    <h3 class="section click" data-id={json[i]['id']} onClick={articleClick}>
+                var a=(<div class="card col-sm-12" data-id={json[i]['id']} onClick={articleClick}>
+                    <h3 class="section click">
                         {json[i]['title']}
                     </h3>
                     <img src={"http://"+ip+":12333/dataServerCtrl/"+json[i]['cover_img']}/>

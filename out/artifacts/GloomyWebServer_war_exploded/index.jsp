@@ -23,9 +23,9 @@
     <script src="js/getContent.js"></script>
 </head>
 <body>
-<span id="dialog"></span>
+<div id="dialog"></div>
 <header id="head" class="sticky"></header>
-<span id="page"></span>
+<div id="page"></div>
 <footer id="foot" class="sticky"></footer>
 
 </body>
