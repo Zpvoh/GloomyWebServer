@@ -23,10 +23,9 @@
     <script src="js/getContent.js"></script>
 </head>
 <body>
-<div id="dialog"></div>
+<span id="dialog"></span>
 <header id="head" class="sticky"></header>
-<div id="page"></div>
-<input type="file" ng-model="my_file" id="conf" style="display: none;">
+<span id="page"></span>
 <footer id="foot" class="sticky"></footer>
 
 </body>

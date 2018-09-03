@@ -74,8 +74,8 @@ class Article extends React.Component{
 
 class VerifyDialog extends React.Component{
     render(){
-        return <div><label htmlFor="modal-control">Answer my question then I can let you in</label>
-            <input type="checkbox" id="modal-control" className={"modal"}/>
+        return <div>
+            <input type="checkbox" id="modal-control" className={"modal"} checked="checked"/>
             <div>
                 <div className="card">
                     <label htmlFor="modal-control" className={"modal-close"}/>
