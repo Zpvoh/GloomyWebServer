@@ -15,7 +15,7 @@ var foot=<footer class="sticky">2018-2020 Emacipatevoh's Warehouse</footer>;
 var elementArr=[head, pageDiv, foot];
 
 function articleClick(e){
-    var art=<Article artId={e.target.dataset.id}/>;
+    var art=<Article artId={e.target.parentElement.dataset.id}/>;
     ReactDOM.render(
         art,
         document.getElementById("page")
