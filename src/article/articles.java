@@ -35,8 +35,9 @@ public class articles extends HttpServlet {
         String path="";
 
         try {
-            File file=new File("info");
+            File file=new File("/info");
             path=file.getAbsolutePath();
+            out.println(path);
 
             FileInputStream fileStream=new FileInputStream(file);
             Scanner input= new Scanner(fileStream);
