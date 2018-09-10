@@ -42,7 +42,7 @@ public class articles extends HttpServlet {
             FileInputStream fileStream=new FileInputStream(file);
             Scanner input= new Scanner(fileStream);
             ip=input.nextLine();
-            out.println(ip);
+            //out.println(ip);
             username=input.nextLine();
             pass=input.nextLine();
             fileStream.close();
