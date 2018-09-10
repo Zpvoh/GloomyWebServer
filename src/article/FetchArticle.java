@@ -37,7 +37,7 @@ public class FetchArticle extends HttpServlet {
         String path="";
 
         try {
-            File file=new File("/info");
+            File file=new File("info");
             path=file.getAbsolutePath();
 
             FileInputStream fileStream=new FileInputStream(file);
