@@ -33,6 +33,10 @@ class Article extends React.Component{
     }
     componentDidMount() {
         var artId=this.props.artId;
+        var spinner=<div class="spinner primary"/>;
+        this.state.art.push(spinner);
+        this.setState(this.state);
+
         $.post("fetchArticle", {
             id:artId,
             name:sname
@@ -44,6 +48,7 @@ class Article extends React.Component{
                 <span className={"col-sm-6"}>{json[0]['theme']}</span>
                 <div class="section" dangerouslySetInnerHTML={{__html: json[0]['content']}}/>
             </div>);
+            this.state.art.pop();
             this.state.art.push(art);
             this.setState(this.state);
         }.bind(this));
