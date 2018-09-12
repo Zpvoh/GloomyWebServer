@@ -20,4 +20,13 @@
         <servlet-name>FetchArticle</servlet-name>
         <url-pattern>/fetchArticle</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>FetchArticleComment</servlet-name>
+        <servlet-class>article.FetchArticleComment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FetchArticleComment</servlet-name>
+        <url-pattern>/artComment</url-pattern>
+    </servlet-mapping>
 </web-app>

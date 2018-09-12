@@ -19,6 +19,8 @@
     <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/handleCookie.js"></script>
+    <script type="text/babel" src="js/comment_render.js"></script>
+    <script type="text/babel" src="js/article_render.js"></script>
     <script type="text/babel" src="js/react_render.js"></script>
     <script src="js/getContent.js"></script>
 </head>

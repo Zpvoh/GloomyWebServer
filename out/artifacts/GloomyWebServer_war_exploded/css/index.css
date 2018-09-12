@@ -9,3 +9,8 @@
 .click{
     cursor: pointer;
 }
+
+.comment{
+    text-align: center;
+    float: right;
+}
