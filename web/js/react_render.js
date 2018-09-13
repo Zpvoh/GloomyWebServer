@@ -10,7 +10,7 @@ var chatRoom=<span className={"button"}>chatRoom</span>
 var headArr=[logo, article, music, movie, corpus, chatRoom];
 var head=<header class="sticky">{headArr}</header>;
 var pageDiv=<div></div>;
-var foot=<footer class="sticky">2018-2020 Emacipatevoh's Warehouse</footer>;
+var foot=<span>2018-2020 Emacipatevoh's Warehouse</span>;
 
 var elementArr=[head, pageDiv, foot];
 
@@ -60,6 +60,29 @@ function articleRender() {
     );
 }
 
+function appear() {
+    $("#dialog").hide();
+    $("#head").fadeIn(100);
+    $("#page").fadeIn(100);
+    $("#foot").fadeIn(100);
+    setCookie("name", sname, 1);
+
+    ReactDOM.render(
+        headArr,
+        document.getElementById("head")
+    );
+
+    homeRender();
+
+    ReactDOM.render(
+        foot,
+        document.getElementById("foot")
+    );
+
+    $("#homePage").click(homeRender);
+    $("#articleEntrance").click(articleRender);
+}
+
 function login() {
     sname=getCookie("name");
 
@@ -73,37 +96,39 @@ function login() {
         console.log(data);
 
         if(data==='invalid\n') {
-            alert("You don't know that");
+            $("#toast").fadeIn(1000);
+            $("#toast").fadeOut(1000);
         }else{
-            $("#dialog").hide();
-            setCookie("name", sname, 1);
-
-            ReactDOM.render(
-                headArr,
-                document.getElementById("head")
-            );
-
-            homeRender();
-
-            ReactDOM.render(
-                foot,
-                document.getElementById("foot")
-            );
-
-            $("#homePage").click(homeRender);
-            $("#articleEntrance").click(articleRender);
+            appear();
         }
 
     });
 }
 
 var dialog=<VerifyDialog/>;
+var toast=<span className={"toast"} id={"toast"}>You don't know that</span>;
+var verifyArr=[toast, dialog];
 
-ReactDOM.render(
-    dialog,
-    document.getElementById("dialog")
-);
+$("#head").hide();
+$("#page").hide();
+$("#foot").hide();
 
-login();
+sname=getCookie("name");
 
-$("#loginBt").click(login);
+$.post("articles", {
+    name:sname
+},function (data, status) {
+    console.log(data);
+
+    if(data!=='invalid\n') {
+        appear();
+    }else{
+        ReactDOM.render(
+            verifyArr,
+            document.getElementById("dialog")
+        );
+        $("#toast").hide();
+        $("#loginBt").click(login);
+    }
+
+});
