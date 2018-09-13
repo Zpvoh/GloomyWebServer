@@ -11,6 +11,16 @@
 }
 
 .comment{
-    text-align: center;
+    vertical-align: middle;
     float: right;
+}
+
+.newComment{
+    position: fixed;
+    bottom: 0;
+}
+
+.commentCard{
+    margin-right: 10px;
+    margin-top: 3em;
 }

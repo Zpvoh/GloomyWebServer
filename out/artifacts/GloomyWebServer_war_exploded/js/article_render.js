@@ -20,9 +20,9 @@ class Article extends React.Component{
             console.log(data);
             var json=JSON.parse(data);
             var art=(<div className={"col-sm-12"}>
+                <CommentList artId={artId}/>
                 <h1 className={"col-sm-6"}>{json[0]['title']}</h1>
                 <span className={"col-sm-6"}>{json[0]['theme']}</span>
-                <CommentList artId={artId}/>
                 <div class="section" dangerouslySetInnerHTML={{__html: json[0]['content']}}/>
             </div>);
             this.state.art.pop();

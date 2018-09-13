@@ -8,7 +8,7 @@ class Comment extends React.Component{
         console.log('Component WILL MOUNT!')
     }
     componentDidMount() {
-        var comment=<div class="card">
+        var comment=<div class="card commentCard">
             <div class="section">{this.props.name}</div>
             <div class="section dark">{this.props.comment}</div>
         </div>;
@@ -54,8 +54,23 @@ class CommentList extends React.Component{
                 var comment=<Comment name={json[i]['name']} comment={json[i]['comment']}/>
                 comments.push(comment);
             }
-            var art=(<span className={"col-sm-2"}>
-                <label htmlFor="drawer-control" class="drawer-toggle persistent"><span className={"comment"}><em>Comments</em></span></label>
+            var newComment=<div class="card newComment">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="Username" placeholder="Username"/>
+                    <label for="comment">Comment</label>
+                    <textarea id="Comment" placeholder="Comment"/>
+                </div>
+                <div class="button-group">
+                    <button>提交</button>
+                    <button>清除</button>
+                </div>
+            </div>;
+
+                comments.push(newComment);
+
+            var art=(<span className={"col-sm-2", "comment"}>
+                <label htmlFor="drawer-control" class="drawer-toggle persistent"><span><em>Comments</em></span></label>
 
                 <input type="checkbox" id="drawer-control" class="drawer persistent"/>
                 <div>
