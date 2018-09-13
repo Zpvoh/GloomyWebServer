@@ -29,4 +29,13 @@
         <servlet-name>FetchArticleComment</servlet-name>
         <url-pattern>/artComment</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddArticleComment</servlet-name>
+        <servlet-class>article.AddArticleComment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddArticleComment</servlet-name>
+        <url-pattern>/addArtComment</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -1,3 +1,24 @@
+function commentSubmit(e) {
+    var id=e.target.dataset.artid;
+
+    $.post("addArtComment", {
+        name:sname,
+        id: id,
+        username: $("#Username").val(),
+        comment: $("#Comment").val()
+    }, function (data, status) {
+        console.log(data);
+        $("#Username").val("");
+        $("#Comment").val("");
+        this.requestFor();
+    }.bind(this));
+}
+
+function commentClear() {
+    $("#Username").val("");
+    $("#Comment").val("");
+}
+
 class Comment extends React.Component{
     constructor(props){
         super(props);
@@ -34,14 +55,8 @@ class CommentList extends React.Component{
         this.state={art:[]};
     }
 
-    componentWillMount() {
-        console.log('Component WILL MOUNT!')
-    }
-    componentDidMount() {
+    requestFor(){
         var artId=this.props.artId;
-        var spinner=<div class="spinner primary"/>;
-        this.state.art.push(spinner);
-        this.setState(this.state);
 
         $.post("artComment", {
             id:artId,
@@ -62,12 +77,12 @@ class CommentList extends React.Component{
                     <textarea id="Comment" placeholder="Comment"/>
                 </div>
                 <div class="button-group">
-                    <button>提交</button>
-                    <button>清除</button>
+                    <button className={"primary"} onClick={commentSubmit.bind(this)} data-artId={artId}>提交</button>
+                    <button onClick={commentClear}>清除</button>
                 </div>
             </div>;
 
-                comments.push(newComment);
+            comments.push(newComment);
 
             var art=(<span className={"col-sm-2", "comment"}>
                 <label htmlFor="drawer-control" class="drawer-toggle persistent"><span><em>Comments</em></span></label>
@@ -82,7 +97,16 @@ class CommentList extends React.Component{
             this.state.art.push(art);
             this.setState(this.state);
         }.bind(this));
+    }
 
+    componentWillMount() {
+        console.log('Component WILL MOUNT!')
+    }
+    componentDidMount() {
+        var spinner=<div class="spinner primary"/>;
+        this.state.art.push(spinner);
+        this.setState(this.state);
+        this.requestFor();
         console.log('Component DID MOUNT!')
     }
     shouldComponentUpdate(newProps, newState) {
