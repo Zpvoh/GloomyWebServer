@@ -71,14 +71,11 @@ class CommentList extends React.Component{
             }
             var newComment=<div class="card newComment">
                 <div class="input-group">
-                    <label for="username">Username</label>
                     <input type="text" id="Username" placeholder="Username"/>
-                    <label for="comment">Comment</label>
                     <textarea id="Comment" placeholder="Comment"/>
                 </div>
                 <div class="button-group">
                     <button className={"primary"} onClick={commentSubmit.bind(this)} data-artId={artId}>提交</button>
-                    <button onClick={commentClear}>清除</button>
                 </div>
             </div>;
 
