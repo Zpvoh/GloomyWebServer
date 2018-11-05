@@ -42,5 +42,14 @@
     <orderEntry type="library" name="gson-2.3.1" level="project" />
     <orderEntry type="library" name="commons-logging-1.2.1.1" level="project" />
     <orderEntry type="library" name="ezmorph-1.0.6" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/servlet-api.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
