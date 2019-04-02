@@ -53,7 +53,7 @@ class ArticlePage extends React.Component{
     }
     componentDidMount() {
         var ip;
-        var conf=$.ajax({url:"info",async:false}).then(function (data, status) {
+        var conf=$.ajax({url:"/info",async:false}).then(function (data, status) {
             ip=data.split("\n")[0];
             console.log(ip);
         });
